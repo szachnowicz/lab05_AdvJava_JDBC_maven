@@ -1,18 +1,25 @@
 package com.szachnowicz.domain;
 
 import java.sql.Date;
+import java.util.Scanner;
 
 public class Booking {
     private int id;
-    private String type;
-    private Client client;
-    private Date date;
+    private int type;
+    private int client;
+    private String date;
 
-    public Booking(int id, String type, Client client, Date date) {
-        this.id = id;
-        this.type = type;
-        this.client = client;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
         this.date = date;
+    }
+
+    public Booking() {
+
     }
 
     public int getId() {
@@ -24,27 +31,60 @@ public class Booking {
         this.id = id;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 
-    public Client getClient() {
+    public int getClient() {
         return client;
     }
 
-    public void setClient(Client client) {
+    public void setClient(int client) {
         this.client = client;
     }
 
-    public Date getDate() {
-        return date;
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                ", client=" + client +
+                ", date='" + date + '\'' +
+                '}';
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public static Booking getBookingInput() {
+
+        Booking booking = new Booking();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Podaj numer usługi");
+        try {
+            int i = scanner.nextInt();
+
+            System.out.println("Podaj Date");
+            String data = scanner.nextLine();
+            booking.setDate(data);
+
+        } catch (NumberFormatException e) {
+            System.out.println("wprowadzono zła wartość");
+        }
+
+        return booking;
+    }
+
+
+    public static void findReservation() {
+        Scanner scanner = new Scanner(System.in);
+
+
+
+
+
+
     }
 }
